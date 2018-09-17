@@ -1,3 +1,9 @@
+# Configs
+
+
+# OS
+.DS_Store
+
 # Logs
 logs
 *.log
