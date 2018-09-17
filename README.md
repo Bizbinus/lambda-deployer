@@ -12,7 +12,7 @@ You deploy Lambda Functions using a NodeJS script.
 
 Navigate to the deploy folder:
 ```
-//to deploy a single file
+//to deploy one or more files
 node deploy <project> <lambda-function-name> ...
 
 //to deploy all files in a project
@@ -33,7 +33,7 @@ project
 
 ```
 
-Each project has it's own dependencies that each Lambda Function will be packed with.
+Each project has it's own dependencies that each Lambda Function will be packaged with.
 Lambda Functions will be deployed and named as {project}-{lambda-function}.js
 For example, the hello.js Lambda Function in the 'example' folder will be deployed as example-hello.js
 
