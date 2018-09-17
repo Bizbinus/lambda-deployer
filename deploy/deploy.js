@@ -7,7 +7,7 @@ var util = require('./util.js');
 
 console.log();
 
-var credentials = new aws.SharedIniFileCredentials({profile: 'your profile name here'});
+var credentials = new aws.SharedIniFileCredentials({profile: config.aws.profile});
 aws.config.credentials = credentials;
 aws.config.update({
     region: 'us-west-2'//change this if region is different
@@ -187,7 +187,8 @@ function deployFile(fileName, project) {
         //first see if the function exists
         lambda.getFunction(getParams, function(err, data) {
           if (err) {
-
+            util.logMessage('Could not create Lambda Function');
+            util.logMessage(err);
             //console.log(`Could not get function: ${err}`);
             deployNew(fileName, project, meta, zipContent);
                

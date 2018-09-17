@@ -33,7 +33,9 @@ module.exports = {
   },
   returnSuccess: function(con, obj, callback) {
     callback(null, this.wrapResponse(data.status.OK, obj));
-    con.end();
+    if (con != null) {
+      con.end();
+    }
   },
   wrapRedirect: function(location) {
     const resp = {
