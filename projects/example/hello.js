@@ -10,7 +10,10 @@ exports.meta = {
   description: `Returns 'hello' as a message.`,
   memory: 128,
   timeout: 15,
-  vpc: data.access.internet
+  vpc: {
+    SubnetIds: [],
+    SecurityGroupIds: []
+  }
 }
 
 

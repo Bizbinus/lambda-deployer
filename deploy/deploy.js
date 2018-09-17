@@ -234,9 +234,7 @@ function getParams(meta) {
 
   var vpc = functionConfig.default.vpc.external;
   if (meta && meta.vpc) {
-    if (functionConfig.default[stage].vpc[meta.vpc]) {
-      vpc = functionConfig.default[stage].vpc[meta.vpc];
-    }
+    vpc = meta.vpc;
   } else if (functionConfig[stage].vpc) {
     vpc = functionConfig[stage].vpc;
   }
