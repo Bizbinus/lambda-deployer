@@ -150,7 +150,7 @@ function packageLambda(file, project) {
 
 function deployFile(fileName, project) {
 
-    util.logMessage(`Deploying package ${fileName}`);
+    util.logMessage(`Deploying package ${project}-${fileName}`);
 
     var zipContent = null;
     
@@ -180,16 +180,15 @@ function deployFile(fileName, project) {
   
 
         var getParams = {
-            FunctionName: fileName
+            FunctionName: `${project}-${fileName}`
         }
 
         
         //first see if the function exists
         lambda.getFunction(getParams, function(err, data) {
           if (err) {
-            util.logMessage('Could not create Lambda Function');
-            util.logMessage(err);
-            //console.log(`Could not get function: ${err}`);
+            util.logMessage('Could not create Lambda Function. Attempting to create...');
+
             deployNew(fileName, project, meta, zipContent);
                
           } else {
@@ -259,7 +258,7 @@ function deployNew(fileName, project, meta, zipContent) {
   var lambda = new aws.Lambda();
 
   var params = getParams(meta);
-  params.FunctionName = fileName;
+  params.FunctionName = `${project}-${fileName}`;
   params.Handler = `${fileName}.handler`;
   params.Publish = false;
   params.Code = {
@@ -272,7 +271,7 @@ function deployNew(fileName, project, meta, zipContent) {
      
     
     } else {
-      util.logSuccess(`Lambda Function ${fileName} created successfully!`);
+      util.logSuccess(`Lambda Function ${project}-${fileName} created successfully!`);
 
       //create the alias
       var alias = {
@@ -287,7 +286,7 @@ function deployNew(fileName, project, meta, zipContent) {
             util.logMessage(err);
         } else {
     
-          util.logSuccess(`${fileName} created at ${data.AliasArn}`);
+          util.logSuccess(`${project}-${fileName} created at ${data.AliasArn}`);
           
         }
       });
@@ -301,13 +300,13 @@ function deployUpdate(fileName, project, meta, zipContent) {
 
   var lambda = new aws.Lambda();
   var updateParams = {
-      FunctionName: fileName,
+      FunctionName: `${project}-${fileName}`,
       Publish: false,
       ZipFile: zipContent 
   }
 
   var configParams = getParams(meta);
-  configParams.FunctionName = fileName;
+  configParams.FunctionName = `${project}-${fileName}`;
 
 
   lambda.updateFunctionCode(updateParams, function(err, data) {

@@ -1,3 +1,6 @@
+# Packages
+deploy/packages
+
 # Configs
 deploy/config.js
 
