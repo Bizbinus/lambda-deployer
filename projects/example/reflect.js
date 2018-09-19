@@ -7,7 +7,8 @@ var data = require('./common/data.js');
 
 
 exports.meta = {
-  description: `Returns any object passed in.`
+  description: `Returns any object passed in.`,
+  vpc: data.vpc.external
 }
 
 

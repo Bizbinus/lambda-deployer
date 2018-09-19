@@ -233,8 +233,17 @@ function getParams(meta) {
   }
 
   var vpc = functionConfig.default.vpc.external;
-  if (meta && meta.vpc) {
+  if (meta && typeof(meta.vpc) == 'string')  {
+    //if meta.vpc is a string, then pull the vpc from the default or stage.
+    vpc = functionConfig.default.vpc[meta.vpc];
+
+    if (functionConfig[stage].vpc && functionConfig[stage].vpc[meta.vpc]) {
+      vpc = functionConfig[stage].vpc[meta.vpc];
+    }
+  } else if (meta && typeof(meta.vpc) == 'object') {
+    //if meta.vpc is an object, then a vpc is defined on the Lambda Function
     vpc = meta.vpc;
+
   } else if (functionConfig[stage].vpc) {
     vpc = functionConfig[stage].vpc;
   }

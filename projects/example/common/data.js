@@ -1,5 +1,10 @@
 
 module.exports = {
+  vpc: {
+    internal: 'internal',
+    external: 'external',
+    internalWithNAT: 'internalWithNAT'
+  },
   status: {
     OK: 200,
     Created: 201,
