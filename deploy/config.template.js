@@ -35,8 +35,8 @@ module.exports = {
     region: 'The region where your Lambda Functions are located.',
     accountNumber: 'Your AWS account number here.',
     apiNumber: '',
+    initialStage: 'dev',
     function: {
-      initialStage: 'dev',
       default: {
         memory: 128,
         timeout: 20,

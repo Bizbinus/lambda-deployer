@@ -10,7 +10,7 @@ console.log();
 var credentials = new aws.SharedIniFileCredentials({profile: config.aws.profile});
 aws.config.credentials = credentials;
 aws.config.update({
-    region: config.aws.region//change this if region is different
+    region: config.aws.region
 });
 
 var projectDir = '../projects';
@@ -208,7 +208,7 @@ function deployFile(fileName, project) {
 function getParams(meta) {
 
   var functionConfig = config.aws.function;
-  var stage = functionConfig.initialStage;
+  var stage = config.aws.initialStage;
 
   var role = functionConfig.default.role;
 
@@ -284,7 +284,7 @@ function deployNew(fileName, project, meta, zipContent) {
       var alias = {
         FunctionName: params.FunctionName,
         FunctionVersion: `$LATEST`,
-        Name: config.aws.function.initialStage
+        Name: config.aws.initialStage
       };
 
       lambda.createAlias(alias, function(err, data) {
