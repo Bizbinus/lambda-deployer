@@ -10,7 +10,7 @@ console.log();
 var credentials = new aws.SharedIniFileCredentials({profile: config.aws.profile});
 aws.config.credentials = credentials;
 aws.config.update({
-    region: 'us-west-2'//change this if region is different
+    region: config.aws.region//change this if region is different
 });
 
 var projectDir = '../projects';
