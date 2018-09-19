@@ -32,6 +32,7 @@ module.exports = {
   },
   aws: {
     profile: 'Name of profile in your .aws/Credentials file.',
+    region: 'The region where your Lambda Functions are located.',
     accountNumber: 'Your AWS account number here.',
     apiNumber: '',
     function: {
