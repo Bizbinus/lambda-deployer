@@ -2,7 +2,7 @@
 deployer/packages
 
 # Configs
-deployer/config/environments
+deployer/config/env
 
 # OS
 .DS_Store
