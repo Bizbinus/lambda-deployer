@@ -1,0 +1,25 @@
+{
+  "name": "lambdaproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "exports.js",
+  "author": "Gail Sparks",
+  "license": "ISC",
+  "scripts": {
+    "test": "mocha ./**/*.spec.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^8.1.1",
+    "mysql": "^2.15.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0"
+  }
+}

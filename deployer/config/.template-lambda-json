@@ -1,0 +1,28 @@
+{
+  "MemorySize": 128,
+  "Timeout": 20,
+  "Role": "",
+  "Tags": {
+    "stage": ""
+  },
+  "VpcConfig": {
+    "external": {
+      "SubnetIds": [
+      ],
+      "SecurityGroupIds": [
+      ]
+    },
+    "internal": {
+      "SubnetIds": [
+      ],
+      "SecurityGroupIds": [
+      ]
+    },
+    "internalWithNAT": {
+      "SubnetIds": [
+      ],
+      "SecurityGroupIds": [
+      ]
+    }
+  }
+}

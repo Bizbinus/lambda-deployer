@@ -1,28 +1,15 @@
+'use strict'
 
-
-var mysql = require('mysql');
-
-var util = require('./common/util.js');
-var data = require('./common/data.js');
-
-
+var data = require('../common/data')
+/**
+ * The meta object allows you to provide more customized settings for this specific Lambda function
+ *  Any variables not defined in the meta object will use the default values defined in the config.js file
+ */
 exports.meta = {
-  description: `Returns any object passed in.`,
-  vpc: data.vpc.external
+  Description: `Returns the object passed in through the event.body.`,
+  VpcConfig: data.vpc.external
 }
 
-
-exports.handler = (event, context, callback) => {
-
-  try {
-
-    util.returnSuccess(null, JSON.parse(event.body), callback);
-
-  } catch(err) {
-
-    util.returnError(null, err, data.status.BadRequest, {message: 'Error parsing object.'}, callback);
-
-  }
-
+exports.handler = async (event, context) => {
+  return JSON.parse(event.body)
 }
-
