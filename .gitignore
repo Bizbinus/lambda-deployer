@@ -1,8 +1,8 @@
 # Packages
-deploy/packages
+deployer/packages
 
 # Configs
-deploy/config.js
+deployer/config/environments
 
 # OS
 .DS_Store
